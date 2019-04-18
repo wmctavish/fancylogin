@@ -1,3 +1,5 @@
+
+//Basic slide toggling of registration form
 $("#login-button").click( function() {
     $("#bg-modal").slideToggle(800);
     $("#modal-content").slideToggle(800);
@@ -79,3 +81,25 @@ rePassword.onkeyup = () => {
         rePassword.classList.add("valid");
     }
 };
+
+//Enable registration button
+
+
+
+//Re-size main element, fade-out/in input fields, welcome message
+function regComplete() {
+    //Check media size before creating welcome element
+    if (window.matchMedia("(min-width: 932px").matches) {
+        $("#login-form").animate({opacity: 'toggle'}, 800);
+        $(".close").animate({opacity: 'toggle'}, 100);
+        $("#modal-content").animate({width: '40%'}, 800);
+        $("#modal-content").animate({height: "160px"}, 800);
+        $("#welcome").delay(1000).animate({opacity: '1'}, 800);
+    } else {
+        $("#login-form").animate({opacity: 'toggle'}, 800);
+        $(".close").animate({opacity: 'toggle'}, 100);
+        $("#modal-content").animate({width: '95%'}, 800);
+        $("#modal-content").animate({height: "160px"}, 800);
+        $("#welcome").delay(1000).animate({opacity: '1'}, 800);
+    }
+}; 
