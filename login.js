@@ -22,10 +22,12 @@ userName.onkeyup = () => {
         userName.classList.add("invalid");
         userName.classList.remove("valid");
         $("#unlength").show();
+        unPassed = false;
     } else if (username.value.length >= 6){
         userName.classList.remove("invalid");
         userName.classList.add("valid");
         $("#unlength").hide();
+        unPassed = true;
     };
 };
 
@@ -42,11 +44,13 @@ password.onkeyup = () => {
         password.classList.add("invalid");
         password.classList.remove("valid");
         $("#pwrequires").show();
+        pwPassed = false;
         
     } else if (password.value.length >= 8 && capRegex.test(pwvalue) && charRegex.test(pwvalue)) {
         password.classList.remove("invalid");
         password.classList.add("valid");
         $("#pwrequires").hide();
+        pwPassed = true;
     };
 
     if (pwcounter >= 8) {
@@ -76,14 +80,23 @@ rePassword.onkeyup = () => {
     if (repwvalue != pwvalue) {
         rePassword.classList.add("invalid");
         rePassword.classList.remove("valid");
+        repwPassed = false;
     } else if (repwvalue == pwvalue) {
         rePassword.classList.remove("invalid");
         rePassword.classList.add("valid");
+        repwPassed = true;
     }
 };
 
 //Enable registration button
-
+/*
+let unPassed = false;
+let pwPassed = false;
+let repwPassed = false;
+if (unPassed && pwPassed && repwPassed) {
+    $("#submit-button").prop('disabled', false);
+}
+*/
 
 
 //Re-size main element, fade-out/in input fields, welcome message
