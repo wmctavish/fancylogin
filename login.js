@@ -29,6 +29,7 @@ userName.onkeyup = () => {
         $("#unlength").hide();
         unPassed = true;
     };
+    enableRegistration()
 };
 
 //Password validation
@@ -70,6 +71,7 @@ password.onkeyup = () => {
     } else {
         $("#symbol").show();
     };
+    enableRegistration()
 };
 
 //Ensure password re-entry matches initial password
@@ -86,17 +88,25 @@ rePassword.onkeyup = () => {
         rePassword.classList.add("valid");
         repwPassed = true;
     }
+    enableRegistration()
 };
 
 //Enable registration button
-/*
 let unPassed = false;
 let pwPassed = false;
 let repwPassed = false;
-if (unPassed && pwPassed && repwPassed) {
-    $("#submit-button").prop('disabled', false);
-}
-*/
+function enableRegistration() {
+    if (unPassed && pwPassed && repwPassed) {
+        $("#submit-button").attr('disabled', false);
+        $("#submit-button").show();
+        $("#submit-button").animate({opacity: '1'}, 200);
+    } else {
+        $("#submit-button").attr('disabled', true);
+        $("#submit-button").hide();
+        $("#submit-button").animate({opacity: '0'}, 200);
+    }
+};
+
 
 
 //Re-size main element, fade-out/in input fields, welcome message
